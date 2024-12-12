@@ -21,7 +21,24 @@ Full stack developer
 
 <b>My Published Articles</b>
 <!-- BLOG-POSTS-START -->
-
+<div>
+    <div style="display:flex;border:1px solid #C0C0C0;margin:5px;">
+        <div style="padding:5px;">
+            <img src="https://cdn-images-1.medium.com/max/1024/1*Ah5A61sX2hN3z9Joq9ZN_g.png" alt="blog image" width="150" height="100">
+        </div>
+        <div style="padding:5px;">
+            <div>
+                <a style="color:white;font-weight:bold;" href="https://medium.com/@nadkarnigaurav/step-into-chrome-extension-development-easy-setup-with-typescript-and-webpack-01423770b02e?source=rss-9032e6d6b70------2" target="_blank">
+                    Step Into Chrome Extension Development: Easy Setup with TypeScript and Webpack
+                </a>
+            </div>
+            <div>
+                <div>Wed, 11 Dec 2024 11:10:54 GMT</div>
+                <div>Gaurav</div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- BLOG-POSTS-END -->
 
 <b>My GitHub Stats</b>
