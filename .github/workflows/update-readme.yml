@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Update README
-        run: node update-readme.js
+        run: npm run job:blogs
 
       - name: Commit and Push Changes
         run: |
