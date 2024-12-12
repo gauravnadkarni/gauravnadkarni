@@ -25,9 +25,11 @@ jobs:
         run: npm run job:blogs
 
       - name: Commit and Push Changes
+        env:
+            GH_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_BOT }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           git commit -m "Update blog posts in README"
-          git push
+          git push https://${{ secrets.GH_PAT }}@github.com/gauravnadkarni/gauravnadkarni.git HEAD:main
