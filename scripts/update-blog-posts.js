@@ -48,7 +48,6 @@ async function updateReadme() {
             </div>
             <div>
                 <div>${blog.publishingDate}</div>
-                <div>${blog.creator}</div>
             </div>
         </div>
     </div>`
