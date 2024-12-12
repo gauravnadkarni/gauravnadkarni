@@ -32,4 +32,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           git commit -m "Update blog posts in README"
-          git push https://${{ secrets.GH_PAT }}@github.com/gauravnadkarni/gauravnadkarni.git HEAD:main
+          git push https://${{ secrets.ACCESS_TOKEN_FOR_BOT }}@github.com/gauravnadkarni/gauravnadkarni.git HEAD:main
