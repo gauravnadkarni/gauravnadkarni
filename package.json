@@ -1,0 +1,17 @@
+{
+  "name": "gauravnadkarni",
+  "version": "1.0.0",
+  "description": "This is my github repo",
+  "main": "index.js",
+  "scripts": {
+    "job:blogs": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "path": "^0.12.7",
+    "rss-parser": "^3.13.0"
+  }
+}
