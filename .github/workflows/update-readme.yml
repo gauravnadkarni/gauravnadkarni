@@ -44,3 +44,7 @@ jobs:
           git add README.md
           git commit -m "Update blog posts in README"
           git push
+
+      - name: Set Job Status
+        if: steps.check-changes.outcome == 'skipped'
+        run: echo "No changes detected. Skipping commit and push."
