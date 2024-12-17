@@ -27,24 +27,17 @@ jobs:
       - name: Check for Changes
         id: check-changes
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "Changes detected"
-            exit 0
+          if git diff --quiet; then
+            echo "changes=false" >> $GITHUB_ENV
           else
-            echo "No changes"
-            exit 1
+            echo "changes=true" >> $GITHUB_ENV
           fi
-        continue-on-error: false
 
       - name: Commit and Push Changes
-        if: steps.check-changes.outcome == 'success'
+        if: env.changes == 'true'
         run: |
           git config --global user.name "Gaurav"
           git config --global user.email "nadkarnigaurav@gmail.com"
           git add README.md
           git commit -m "Update blog posts in README"
           git push
-
-      - name: Set Job Status
-        if: steps.check-changes.outcome == 'skipped'
-        run: echo "No changes detected. Skipping commit and push."
