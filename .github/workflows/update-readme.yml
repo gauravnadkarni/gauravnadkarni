@@ -27,11 +27,17 @@ jobs:
       - name: Check for Changes
         id: check-changes
         run: |
-          git diff --exit-code --quiet
-        continue-on-error: true
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Changes detected"
+            exit 0
+          else
+            echo "No changes"
+            exit 1
+          fi
+        continue-on-error: false
 
       - name: Commit and Push Changes
-        if: steps.check-changes.outcome != 'skipped'
+        if: steps.check-changes.outcome == 'success'
         run: |
           git config --global user.name "Gaurav"
           git config --global user.email "nadkarnigaurav@gmail.com"
