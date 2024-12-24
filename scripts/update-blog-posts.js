@@ -4,6 +4,8 @@ const cheerio = require('cheerio');
 const path  = require('path');
 const feedParser = new Parser();
 
+const MAX_BLOGS_TO_SHOW_ON_THE_PAGE = 6
+
 async function getBlogsFromMedium () {
     const feed = await feedParser.parseURL('https://medium.com/feed/@nadkarnigaurav');
     if(!feed || feed.items.length === 0) {
@@ -27,13 +29,17 @@ async function getBlogsFromMedium () {
 }
 
 async function updateReadme() {
-  const blogs = await getBlogsFromMedium();
+  let blogs = await getBlogsFromMedium();
   if(!blogs || blogs.length === 0) {
     throw new Error('No Medium Blogs Found')
   }
 
   const readmePath = path.resolve('./README.md');
   const readmeContent = fs.readFileSync(readmePath, 'utf-8');
+
+  if( blogs.length > MAX_BLOGS_TO_SHOW_ON_THE_PAGE ) {
+    blogs = blogs.slice(0, MAX_BLOGS_TO_SHOW_ON_THE_PAGE)
+  }
 
   articles = blogs.map((blog)=> (
     `<div style="display:flex;border:1px solid #C0C0C0;margin:5px;">
